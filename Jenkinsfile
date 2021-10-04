@@ -13,6 +13,12 @@ pipeline {
       }
     }
 
+    stage('Switch to target environment') {
+      steps {
+        sh '/etc/kubeasz/etctl checkout $TARGET_ENV'
+      }
+    }
+
     stage('Build apply nginx ingress') {
       steps {
         sh 'kubectl apply -f nginx-ingress.yaml'
