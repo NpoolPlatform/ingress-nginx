@@ -15,7 +15,7 @@ pipeline {
 
     stage('Switch to target environment') {
       steps {
-        sh '/etc/kubeasz/ezctl checkout $TARGET_ENV'
+        sh 'cd /etc/kubeasz; /etc/kubeasz/ezctl checkout $TARGET_ENV'
       }
     }
 
